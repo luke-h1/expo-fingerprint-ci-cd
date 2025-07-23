@@ -1,9 +1,9 @@
 import { ExpoConfig } from "expo/config";
 
 const bundleIdentifier =
-  process.env.EXPO_BUNDLE_IDENTIFIER ?? "com.lhowsam.ota-updates";
+  process.env.EXPO_BUNDLE_IDENTIFIER ?? "com.lhowsam.ota-updates-test";
 const androidPackage =
-  process.env.EXPO_ANDROID_PACKAGE ?? "com.lhowsam.ota-updates";
+  process.env.EXPO_ANDROID_PACKAGE ?? "com.lhowsam.ota-updates-test";
 
 const VARIANT: Record<
   "testflight" | "production",
@@ -11,11 +11,11 @@ const VARIANT: Record<
 > = {
   testflight: {
     name: "OTA updates (testflight)",
-    slug: "ota-updates-test-flight",
+    slug: "expo-fingerprint-ci-cd",
   },
   production: {
     name: "OTA updates",
-    slug: "ota-updates-lho-prod",
+    slug: "expo-fingerprint-ci-cd",
   },
 };
 
@@ -24,6 +24,7 @@ const appConfig =
   "testflight";
 
 const config: ExpoConfig = {
+  owner: "lukehowsam123",
   name: appConfig.name,
   slug: appConfig.slug,
   version: "1.0.0",
