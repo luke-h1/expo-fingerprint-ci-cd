@@ -20,7 +20,8 @@ const VARIANT: Record<
 };
 
 const appConfig =
-  VARIANT[process.env.APP_VARIANT as "production" | "testflight"];
+  VARIANT[process.env.APP_VARIANT as "production" | "testflight"] ??
+  "testflight";
 
 const config: ExpoConfig = {
   name: appConfig.name,
@@ -32,6 +33,9 @@ const config: ExpoConfig = {
   newArchEnabled: true,
   extra: {
     APP_VARIANT: process.env.APP_VARIANT,
+    eas: {
+      projectId: "c8aa8d87-0bb3-467f-a8f1-86f47fc9ebca",
+    },
   },
   ios: {
     supportsTablet: true,
